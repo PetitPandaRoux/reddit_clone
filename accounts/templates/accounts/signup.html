@@ -1,0 +1,23 @@
+<h1>Register!</h1>
+
+{% if error %}
+  {{error}}
+  <br><br>
+{% endif %}
+
+<form method="POST" action="{% url 'signup' %}">
+  {% csrf_token %}
+  <label for="username">Username :</label><br>
+  <input type="text" name="username" required/>
+  <br>
+  <label for="email">email :</label><br>
+  <input type="text" name="email" required/>
+  <br>
+  <label for="password">Password :</label><br>
+  <input type="password" name="password" required/>
+  <br>
+  <label for="verify">Verify:</label><br>
+  <input type="password" name="verify" required/>
+  <br>
+  <input type="submit" value="Sign Up"/>
+</form>

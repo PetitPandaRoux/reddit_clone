@@ -1,0 +1,19 @@
+<h1>Log In!</h1>
+
+{% if error %}
+  {{error}}
+  <br><br>
+{% endif %}
+
+
+<form method="POST" action="{% url 'login' %}">
+  {% csrf_token %}
+  <label for="username">Username :</label><br>
+  <input type="text" name="username" required/>
+  <br>
+  <label for="password">Password :</label><br>
+  <input type="password" name="password" required/>
+  <br>
+
+  <input type="submit" value="LOG IN"/>
+</form>

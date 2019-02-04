@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login
 # Create your views here.
-def signup(request):
+def sign_up(request):
     if request.method == 'POST':
         if request.POST['password'] == request.POST['verify']:
             try:

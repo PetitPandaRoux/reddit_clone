@@ -1,2 +1,21 @@
 <h1>This is the homepage</h1>
 <a href="{% url 'posts:create' %}">New Post</a>
+<br/>
+<br/>
+
+{% for post in posts.all %}
+  <a href="{{ post.url }}"><div>{{post.title}}</div></a>
+  <div>{{post.pub_date}}</div>
+  <div>By {{post.author.username}}</div>
+  <div>Votes : {{post.votes_total}}</div>
+  <form method="POST" action="{% url 'posts:upvote' post.id %}">
+    {% csrf_token %}
+    <br>
+    <input type="submit" value="UP">
+  </form>
+  <form method="POST" action="{% url 'posts:downvote' post.id %}">
+    {% csrf_token %}
+    <br>
+    <input type="submit" value="DOWN">
+  </form>
+{% endfor %}

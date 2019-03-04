@@ -5,7 +5,7 @@ from .models import Post
 # Create your views here.
 
 def home(request):
-    posts = Post.objects.order_by('votes_total')
+    posts = Post.objects.order_by('-votes_total')
     return render(request,'posts/home.html', {'posts':posts})
 
 @login_required
@@ -18,7 +18,7 @@ def create(request):
             if request.POST['url'].startswith('http://') or request.POST['url'].startswith('https://'):
                 post.url = request.POST['url']
             else:
-                post.url = 'http://'+request.POST['url']
+                post.url = 'https://'+request.POST['url']
             
             post.pub_date = timezone.datetime.now()
             post.author = request.user

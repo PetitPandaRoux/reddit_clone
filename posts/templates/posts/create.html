@@ -13,11 +13,14 @@
   {% csrf_token %}
   <label for="title">Title:</label><br>
   <input type="text" name="title" required/>
-  <br>
+  <br/>
+  <br/>
   <label for="url">URL:</label><br>
   <input type="text" name="url"/>
-  <br>
-  <input type="submit" value="Post">
+  <br/>
+  <br/>
+  <input type="submit" value="Post" class="btn btn-primary"/>
+  <br/>
 
 </form>
 {% endblock %}

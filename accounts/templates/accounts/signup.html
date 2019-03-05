@@ -13,16 +13,21 @@
     {% csrf_token %}
     <label for="username">Username :</label><br>
     <input type="text" name="username" required/>
-    <br>
+    <br/>
+    <br/>
     <label for="email">email :</label><br>
     <input type="text" name="email" required/>
-    <br>
+    <br/>
+    <br/>
     <label for="password">Password :</label><br>
     <input type="password" name="password" required/>
-    <br>
+    <br/>
+    <br/>
     <label for="verify">Verify:</label><br>
     <input type="password" name="verify" required/>
-    <br>
-    <input type="submit" value="Sign Up"/>
+    <br/>
+    <br/>
+    <input type="submit" value="Sign Up" class="btn btn-primary"/>
+    <br/>
   </form>
 {% endblock %}

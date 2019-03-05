@@ -5,10 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Sakada's Blog</title>
+    <title>Reddit_clone</title>
 
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+      {% load static %}
+      <link rel="stylesheet" type="text/css" href="{% static 'posts/style.css' %}">
+
     <style>
       .navbar-default {
         background-color: blue !important ;
@@ -30,6 +34,34 @@
          text-align: center;
          margin:0 auto;
        }
+
+       .post {
+        background-color:;
+        border:solid 1px black;
+        border-radius:5px;
+        margin:20px;
+        display:flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding:20px;
+      }
+
+      .post_elements{
+        display:flex;
+        flex-direction: row;
+        width:100%;
+      }
+
+      .vote{
+        flex:1;
+      }
+
+      .post_content{
+        flex:7;
+        text-align: left;
+        padding:20px;
+
+      }
     </style>
   </head>
   <body>

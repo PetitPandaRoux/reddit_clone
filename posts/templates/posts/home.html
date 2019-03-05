@@ -1,25 +1,33 @@
 {% extends 'base.html'%}
 
 {% block content %}
-<h1>This is the homepage</h1>
-<a href="{% url 'posts:create' %}">New Post</a>
+<h1>Welcome to Sakada's reddit clone using Django</h1>
+<a href="{% url 'posts:create' %}" class="btn btn-primary">New Post</a>
 <br/>
 <br/>
 
 {% for post in posts.all %}
-  <a href="{{ post.url }}"><div>{{post.title}}</div></a>
-  <div>{{post.pub_date}}</div>
-  <div>By {{post.author.username}}</div>
-  <div>Votes : {{post.votes_total}}</div>
-  <form method="POST" action="{% url 'posts:upvote' post.id %}">
-    {% csrf_token %}
-    <br>
-    <input type="submit" value="UP">
-  </form>
-  <form method="POST" action="{% url 'posts:downvote' post.id %}">
-    {% csrf_token %}
-    <br>
-    <input type="submit" value="DOWN">
-  </form>
+<div class="post">
+  <div class="post_elements">
+    <div class="votes">
+      <form method="POST" action="{% url 'posts:upvote' post.id %}" >
+          {% csrf_token %}
+          <br>
+          <input type="submit" value="UP" class="btn btn-success" style="width:120px;">
+        </form>
+        <form method="POST" action="{% url 'posts:downvote' post.id %}">
+          {% csrf_token %}
+          <br>
+          <input type="submit" value="DOWN" class="btn btn-danger" style="width:120px;">
+        </form>
+    </div>
+    <div class="post_content">
+      <a href="{{ post.url }}"><div>{{post.title}}</div></a>
+      <div>{{post.pub_date}}</div>
+      <div>By {{post.author.username}}</div>
+      <div>Votes : {{post.votes_total}}</div>
+    </div>
+  </div>
+</div>
 {% endfor %}
 {% endblock %}

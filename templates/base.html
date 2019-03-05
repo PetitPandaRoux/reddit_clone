@@ -24,6 +24,12 @@
        .navbar-default .navbar-nav > li > a {
          color:white ! important;
        }
+
+       .main_content {
+         background-color:white;
+         text-align: center;
+         margin:0 auto;
+       }
     </style>
   </head>
   <body>
@@ -39,15 +45,23 @@
           <a class="navbar-brand" href="{% url 'home' %}">Sakada's reddit</a>
         </div>
         <div class="collapse navbar-collapse" id="mynav">
-          <ul class="nav navbar-nav">
-            <li><a href="">About</a></li>
-            <li><a href="">Twitter</a></li>
+          <ul class="nav navbar-nav navbar-right">
+            {% if user.is_authenticated %}
+            <li><a href="#" onClick="document.getElementById('logout').submit()">Logout</a></li>
+            <form id="logout" method="POST" action="{% url 'accounts:logout' %}">
+              {% csrf_token %}
+              <input type="hidden">              
+            </form>
+            {% else %}
+            <li><a href="{% url 'accounts:signup' %}">Sign Up</a></li>
+            <li><a href="{% url 'accounts:login' %}">Login</a></li>
+            {% endif%}
           </ul>
         </div>
       </div>
     </nav>
 
-    <div class="container">
+    <div class="container main_content">
       {% block content %}
       {% endblock %}
     </div>  

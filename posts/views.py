@@ -32,16 +32,18 @@ def create(request):
         return render(request, 'posts/create.html')
 
 def upvote(request, pk):
-    post = Post.objects.get(pk=pk)
-    post.votes_total += 1 
-    post.save()
-    return redirect('home')
+    if request.method == 'POST':
+        post = Post.objects.get(pk=pk)
+        post.votes_total += 1 
+        post.save()
+        return redirect('home')
 
 def downvote(request, pk):
-    post = Post.objects.get(pk=pk)
-    post.votes_total -= 1 
-    post.save()
-    return redirect('home')
+    if request.method == 'POST':
+        post = Post.objects.get(pk=pk)
+        post.votes_total -= 1 
+        post.save()
+        return redirect('home')
 
 @login_required
 def edit(request):

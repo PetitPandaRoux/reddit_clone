@@ -14,6 +14,8 @@ def create(request):
         if request.POST['title'] and request.POST['url']:
             post = Post()
             post.title = request.POST['title']
+            if request.POST['description']:
+                post.description = request.POST['description']
             
             if request.POST['url'].startswith('http://') or request.POST['url'].startswith('https://'):
                 post.url = request.POST['url']
@@ -22,6 +24,7 @@ def create(request):
             
             post.pub_date = timezone.datetime.now()
             post.author = request.user
+         
             post.save()
             return redirect('home')
         else:

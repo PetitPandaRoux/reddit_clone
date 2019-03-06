@@ -8,7 +8,7 @@ The goal of the project was to understang django by doing a simple project.
 The reddit clone allow users to login and post url link with a description.
 Anyone can upvote and downvote any posts, the homagepage bring the most voted post at the top
 
-You can find the project on Heroku :
+You can find the project on Heroku :https://safe-bayou-94048.herokuapp.com/
 
 ## Setting up :
 One way to launch the project using [virtualenv](https://virtualenv.pypa.io/en/latest/#):

@@ -13,8 +13,8 @@ You can find the projec ton Heroku :
 ## Setting up :
 One way to launch the project using [virtualenv](https://virtualenv.pypa.io/en/latest/#):
 - `virtualenv env`then `source env/bin/activate`
-- `pip install -r requirements.txt`
 - `git clone` clone the project
+- `pip install -r requirements.txt`
 - `python manage.py runserver` to start a development server 
 
 ## TO DO 

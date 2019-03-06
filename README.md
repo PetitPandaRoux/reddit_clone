@@ -16,7 +16,8 @@ One way to launch the project using [virtualenv](https://virtualenv.pypa.io/en/l
 - `git clone https://github.com/PetitPandaRoux/reddit_clone.git` to clone the project in the a directory call reddit_clone
 - `cd reddit_clone`
 - `pip install -r requirements.txt`
-- `python manage.py runserver` to start a development server 
+- `python manage.py migrate` to set up the database
+- `python manage.py runserver` to start a development server then you should see the application on http://localhost:8000/ 
 
 ## TO DO 
 - A page showing thread by user

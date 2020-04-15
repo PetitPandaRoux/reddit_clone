@@ -35,6 +35,8 @@ def create(request):
 
     else:
         return render(request, 'posts/create.html')
+
+    
 @xframe_options_exempt
 def upvote(request, pk):
     if request.method == 'POST':
@@ -42,6 +44,7 @@ def upvote(request, pk):
         post.votes_total += 1 
         post.save()
         return redirect('home')
+    
     
 @xframe_options_exempt
 def downvote(request, pk):

@@ -2,8 +2,10 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.utils import timezone
 from .models import Post
+from django.views.decorators.clickjacking import xframe_options_exempt
 # Create your views here.
 
+@xframe_options_exempt
 def home(request):
     posts = Post.objects.order_by('-votes_total')
     return render(request,'posts/home.html', {'posts':posts})
